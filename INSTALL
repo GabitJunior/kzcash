@@ -1,0 +1,16 @@
+Building KZCash Core
+
+Use the autogen script to prepare the build environment.
+
+    ./autogen.sh
+    ./configure
+    make
+
+Precompiled binaries are available at github, see
+https://github.com/kzcashpay/kzcash-binaries
+
+Always verify the signatures and checksums.
+
+See doc/build-*.md for instructions on building kzcashd,
+the intended-for-services, no-graphical-interface, reference
+implementation of KZCash.

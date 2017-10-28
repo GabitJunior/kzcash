@@ -1,4 +1,4 @@
-KZCash Core 0.12.1
+KZCash Core 0.1.6
 =====================
 
 Intro

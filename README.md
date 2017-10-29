@@ -1,4 +1,4 @@
-KZCash Core staging tree 0.1.6
+KZCash Core staging tree 0.1.7
 ===============================
 
 https://www.kzcash.kz

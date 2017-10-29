@@ -1,4 +1,4 @@
-KZCash Core 0.1.6
+KZCash Core 0.1.7
 =====================
 
 This is the official reference wallet for KZCash digital currency and comprises the backbone of the KZCash peer-to-peer network. You can [download KZCash Core](https://www.kzcash.kz/downloads/) or [build it yourself](#building) using the guides below.

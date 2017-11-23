@@ -579,6 +579,35 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
             } else {
                 strPayeesPossible += "," + address2.ToString();
             }
+            
+            if (!sporkManager.IsSporkActive(SPORK_102_MN_PAYEE_VALIDATION)) {
+                BOOST_FOREACH(CTxOut txout, txNew.vout) {
+                    if (nMasternodePayment == txout.nValue) {
+                        LogPrint("mnpayments", "CMasternodeBlockPayees::IsTransactionValid -- Found required payment, though expected payee '%s'\n", strPayeesPossible);
+                        return true;
+                    } else if (sporkManager.GetSporkValue(SPORK_103_MN_PAYEE_VALIDATION_VAR_SUM) > 0) {
+                        if (nMasternodePayment >= sporkManager.GetSporkValue(SPORK_103_MN_PAYEE_VALIDATION_VAR_SUM) &&
+                            (nMasternodePayment + sporkManager.GetSporkValue(SPORK_103_MN_PAYEE_VALIDATION_VAR_SUM) >= txout.nValue &&
+                            nMasternodePayment - sporkManager.GetSporkValue(SPORK_103_MN_PAYEE_VALIDATION_VAR_SUM) <= txout.nValue)) {
+                                LogPrint("mnpayments", "CMasternodeBlockPayees::IsTransactionValid -- Found required payment, though expected payee '%s', amount: %f KZC\n", strPayeesPossible, (float)nMasternodePayment/COIN);
+                                return true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    if (!sporkManager.IsSporkActive(SPORK_104_MN_PAYEE_VALIDATION_KEEPSCOPE) &&
+        sporkManager.GetSporkValue(SPORK_103_MN_PAYEE_VALIDATION_VAR_SUM) > 0) {
+        BOOST_FOREACH(CTxOut txout, txNew.vout) {
+            if (nMasternodePayment >= sporkManager.GetSporkValue(SPORK_103_MN_PAYEE_VALIDATION_VAR_SUM) &&
+                (nMasternodePayment + sporkManager.GetSporkValue(SPORK_103_MN_PAYEE_VALIDATION_VAR_SUM) >= txout.nValue &&
+                nMasternodePayment - sporkManager.GetSporkValue(SPORK_103_MN_PAYEE_VALIDATION_VAR_SUM) <= txout.nValue)) {
+
+                LogPrint("mnpayments", "CMasternodeBlockPayees::IsTransactionValid -- Found required payment out of MN scope, though expected payee '%s', amount: %f KZC\n", strPayeesPossible, (float)nMasternodePayment/COIN);
+                return true;
+            }
         }
     }
 

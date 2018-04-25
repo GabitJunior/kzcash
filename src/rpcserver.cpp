@@ -1,6 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The KZCash Core developers
+// Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2017-2018 The UCOM Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -243,11 +244,11 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop KZCash Core server.");
+            "\nStop UCOM Core server.");
     // Event loop will exit after current HTTP requests have been handled, so
     // this reply will get back to the client.
     StartShutdown();
-    return "KZCash Core server stopping";
+    return "UCOM Core server stopping";
 }
 
 /**
@@ -342,19 +343,19 @@ static const CRPCCommand vRPCCommands[] =
     { "hidden",             "resendwallettransactions", &resendwallettransactions, true},
 #endif
 
-    /* KZCash features */
-    { "kzcash",               "masternode",             &masternode,             true  },
-    { "kzcash",               "masternodelist",         &masternodelist,         true  },
-    { "kzcash",               "masternodebroadcast",    &masternodebroadcast,    true  },
-    { "kzcash",               "gobject",                &gobject,                true  },
-    { "kzcash",               "getgovernanceinfo",      &getgovernanceinfo,      true  },
-    { "kzcash",               "getsuperblockbudget",    &getsuperblockbudget,    true  },
-    { "kzcash",               "voteraw",                &voteraw,                true  },
-    { "kzcash",               "mnsync",                 &mnsync,                 true  },
-    { "kzcash",               "spork",                  &spork,                  true  },
-    { "kzcash",               "getpoolinfo",            &getpoolinfo,            true  },
+    /* UCOM features */
+    { "ucom",               "masternode",             &masternode,             true  },
+    { "ucom",               "masternodelist",         &masternodelist,         true  },
+    { "ucom",               "masternodebroadcast",    &masternodebroadcast,    true  },
+    { "ucom",               "gobject",                &gobject,                true  },
+    { "ucom",               "getgovernanceinfo",      &getgovernanceinfo,      true  },
+    { "ucom",               "getsuperblockbudget",    &getsuperblockbudget,    true  },
+    { "ucom",               "voteraw",                &voteraw,                true  },
+    { "ucom",               "mnsync",                 &mnsync,                 true  },
+    { "ucom",               "spork",                  &spork,                  true  },
+    { "ucom",               "getpoolinfo",            &getpoolinfo,            true  },
 #ifdef ENABLE_WALLET
-    { "kzcash",               "privatesend",            &privatesend,            false },
+    { "ucom",               "privatesend",            &privatesend,            false },
 
     /* Wallet */
     { "wallet",             "keepass",                &keepass,                true },
@@ -577,7 +578,7 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(const std::string& methodname, const std::string& args)
 {
-    return "> kzcash-cli " + methodname + " " + args + "\n";
+    return "> ucom-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(const std::string& methodname, const std::string& args)

@@ -1,0 +1,20 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/ucom_bg.qm</file>
+        <file alias="de">locale/ucom_de.qm</file>
+        <file alias="en">locale/ucom_en.qm</file>
+        <file alias="es">locale/ucom_es.qm</file>
+        <file alias="fi">locale/ucom_fi.qm</file>
+        <file alias="fr">locale/ucom_fr.qm</file>
+        <file alias="it">locale/ucom_it.qm</file>
+        <file alias="ja">locale/ucom_ja.qm</file>
+        <file alias="pl">locale/ucom_pl.qm</file>
+        <file alias="pt">locale/ucom_pt.qm</file>
+        <file alias="ru">locale/ucom_ru.qm</file>
+        <file alias="sk">locale/ucom_sk.qm</file>
+        <file alias="sv">locale/ucom_sv.qm</file>
+        <file alias="vi">locale/ucom_vi.qm</file>
+        <file alias="zh_CN">locale/ucom_zh_CN.qm</file>
+        <file alias="zh_TW">locale/ucom_zh_TW.qm</file>
+    </qresource>
+</RCC>

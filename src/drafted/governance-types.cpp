@@ -7,8 +7,8 @@ GovernanceObjectType GovernanceStringToType(std::string strType) {
     if(strType == "AllTypes") type = AllTypes;
     if(strType == "Error") type = Error;
     if(strType == "ValueOverride") type = ValueOverride;
-    if(strType == "KZCashNetwork") type = KZCashNetwork;
-    if(strType == "KZCashNetworkVariable") type = KZCashNetworkVariable;
+    if(strType == "UCOMNetwork") type = UCOMNetwork;
+    if(strType == "UCOMNetworkVariable") type = UCOMNetworkVariable;
     if(strType == "Category") type = Category;
     if(strType == "Group") type = Group;
     if(strType == "User") type = User;
@@ -28,8 +28,8 @@ std::string GovernanceTypeToString(GovernanceObjectType type) {
     if(type == AllTypes) s = "AllTypes";
     if(type == Error) s = "Error";
     if(type == ValueOverride) s = "ValueOverride";
-    if(type == KZCashNetwork) s = "KZCashNetwork";
-    if(type == KZCashNetworkVariable) s = "KZCashNetworkVariable";
+    if(type == UCOMNetwork) s = "UCOMNetwork";
+    if(type == UCOMNetworkVariable) s = "UCOMNetworkVariable";
     if(type == Category) s = "Category";
     if(type == Group) s = "Group";
     if(type == User) s = "User";

@@ -123,7 +123,7 @@ public:
 };
 
 /**
- * KZCash RPC command dispatcher.
+ * UCOM RPC command dispatcher.
  */
 class CRPCTable
 {

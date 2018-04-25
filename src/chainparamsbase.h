@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between kzcash-cli and kzcashd)
- * of a given instance of the KZCash system.
+ * CBaseChainParams defines the base parameters (shared between ucom-cli and ucomd)
+ * of a given instance of the UCOM system.
  */
 class CBaseChainParams
 {

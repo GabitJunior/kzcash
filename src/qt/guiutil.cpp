@@ -1,5 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The KZCash Core developers
+// Copyright (c) 2014-2017 The Dash Core developers
+// Copyright (c) 2017-2018 The UCOM Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -116,7 +117,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a KZCash address (e.g. %1)").arg("KinyzZcdoTzAj8QEn2ZBBu3w8TR4GMD96W"));
+    widget->setPlaceholderText(QObject::tr("Enter a UCOM address (e.g. %1)").arg("KinyzZcdoTzAj8QEn2ZBBu3w8TR4GMD96W"));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
     widget->setCheckValidator(new BitcoinAddressCheckValidator(parent));
@@ -133,8 +134,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no kzcash: URI
-    if(!uri.isValid() || uri.scheme() != QString("kzcash"))
+    // return if URI is not valid or is no ucom: URI
+    if(!uri.isValid() || uri.scheme() != QString("ucom"))
         return false;
 
     SendCoinsRecipient rv;
@@ -183,7 +184,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!BitcoinUnits::parse(BitcoinUnits::KZC, i->second, &rv.amount))
+                if(!BitcoinUnits::parse(BitcoinUnits::UCOM, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -203,13 +204,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert kzcash:// to kzcash:
+    // Convert ucom:// to ucom:
     //
-    //    Cannot handle this later, because kzcash:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because ucom:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("kzcash://", Qt::CaseInsensitive))
+    if(uri.startsWith("ucom://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 7, "kzcash:");
+        uri.replace(0, 7, "ucom:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -217,12 +218,12 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("kzcash:%1").arg(info.address);
+    QString ret = QString("ucom:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::KZC, info.amount, false, BitcoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::UCOM, info.amount, false, BitcoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -429,7 +430,7 @@ void openConfigfile()
 {
     boost::filesystem::path pathConfig = GetConfigFile();
 
-    /* Open kzcash.conf with the associated application */
+    /* Open ucom.conf with the associated application */
     if (boost::filesystem::exists(pathConfig))
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
@@ -638,15 +639,15 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "KZCash.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "UCOM.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "KZCash (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("KZCash (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "UCOM (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("UCOM (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for KZCash*.lnk
+    // check for UCOM*.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -738,8 +739,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "kzcash.desktop";
-    return GetAutostartDir() / strprintf("kzcash-%s.lnk", chain);
+        return GetAutostartDir() / "ucom.desktop";
+    return GetAutostartDir() / strprintf("ucom-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -778,11 +779,11 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a kzcash.desktop file to the autostart directory:
+        // Write a ucom.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=KZCash\n";
+            optionFile << "Name=UCOM\n";
         else
             optionFile << strprintf("Name=Bitcoin (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false));
@@ -803,7 +804,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the KZCash Core app
+    // loop through the list of startup items and try to find the UCOM Core app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -848,7 +849,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, bitcoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add KZCash Core app to startup item list
+        // add UCOM Core app to startup item list
         LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, bitcoinAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {

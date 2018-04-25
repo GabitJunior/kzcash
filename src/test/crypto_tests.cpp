@@ -10,7 +10,7 @@
 #include "crypto/hmac_sha512.h"
 #include "random.h"
 #include "utilstrencodings.h"
-#include "test/test_kzcash.h"
+#include "test/test_ucom.h"
 
 #include <vector>
 

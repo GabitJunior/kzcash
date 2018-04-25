@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=UCOM
+Comment=UCOM P2P Cryptocurrency
+Comment[fr]=UCOM, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=UCOM, eşten eşe kriptografik sanal para birimi
+Exec=ucom-qt %u
+Terminal=false
+Type=Application
+Icon=ucom128
+MimeType=x-scheme-handler/ucom;
+Categories=Office;Finance;

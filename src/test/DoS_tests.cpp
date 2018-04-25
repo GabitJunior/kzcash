@@ -13,7 +13,7 @@
 #include "serialize.h"
 #include "util.h"
 
-#include "test/test_kzcash.h"
+#include "test/test_ucom.h"
 
 #include <stdint.h>
 

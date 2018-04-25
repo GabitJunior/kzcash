@@ -1,4 +1,4 @@
-Building KZCash Core
+Building UCOM Core
 
 Use the autogen script to prepare the build environment.
 
@@ -7,10 +7,10 @@ Use the autogen script to prepare the build environment.
     make
 
 Precompiled binaries are available at github, see
-https://github.com/kzcashpay/kzcash-binaries
+https://github.com/ucompay/ucom-binaries
 
 Always verify the signatures and checksums.
 
-See doc/build-*.md for instructions on building kzcashd,
+See doc/build-*.md for instructions on building ucomd,
 the intended-for-services, no-graphical-interface, reference
-implementation of KZCash.
+implementation of UCOM.

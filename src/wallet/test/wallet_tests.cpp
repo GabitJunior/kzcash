@@ -9,7 +9,7 @@
 #include <utility>
 #include <vector>
 
-#include "test/test_kzcash.h"
+#include "test/test_ucom.h"
 
 #include <boost/foreach.hpp>
 #include <boost/test/unit_test.hpp>

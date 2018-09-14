@@ -25,8 +25,8 @@ Build-Depends: debhelper,
  python
 Standards-Version: 3.9.2
 Homepage: https://www.unitedcryptocommunity.com/
-Vcs-Git: git://github.com/ucompay/ucom.git
-Vcs-Browser: https://github.com/ucompay/ucom
+Vcs-Git: git://github.com/unitedcryptocommunity/ucom.git
+Vcs-Browser: https://github.com/unitedcryptocommunity/ucom
 
 Package: ucomd
 Architecture: any

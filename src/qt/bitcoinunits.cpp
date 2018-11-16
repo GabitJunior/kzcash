@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The UCOM Core developers
+// Copyright (c) 2017-2019 The KZCash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,9 +20,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(UCOM);
-    unitlist.append(mUCOM);
-    unitlist.append(uUCOM);
+    unitlist.append(KZC);
+    unitlist.append(mKZC);
+    unitlist.append(uKZC);
     unitlist.append(duffs);
     return unitlist;
 }
@@ -31,9 +31,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case UCOM:
-    case mUCOM:
-    case uUCOM:
+    case KZC:
+    case mKZC:
+    case uKZC:
     case duffs:
         return true;
     default:
@@ -47,9 +47,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case UCOM: return QString("UCOM");
-            case mUCOM: return QString("mUCOM");
-            case uUCOM: return QString::fromUtf8("μUCOM");
+            case KZC: return QString("KZC");
+            case mKZC: return QString("mKZC");
+            case uKZC: return QString::fromUtf8("μKZC");
             case duffs: return QString("duffs");
             default: return QString("???");
         }
@@ -58,9 +58,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case UCOM: return QString("tUCOM");
-            case mUCOM: return QString("mtUCOM");
-            case uUCOM: return QString::fromUtf8("μtUCOM");
+            case KZC: return QString("KZC");
+            case mKZC: return QString("mtKZC");
+            case uKZC: return QString::fromUtf8("μtKZC");
             case duffs: return QString("tduffs");
             default: return QString("???");
         }
@@ -73,10 +73,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case UCOM: return QString("UCOM");
-            case mUCOM: return QString("Milli-UCOM (1 / 1" THIN_SP_UTF8 "000)");
-            case uUCOM: return QString("Micro-UCOM (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-UCOM (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case KZC: return QString("KZC");
+            case mKZC: return QString("Milli-KZCash (1 / 1" THIN_SP_UTF8 "000)");
+            case uKZC: return QString("Micro-KZCash (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-KZCash (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -84,10 +84,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case UCOM: return QString("TestUCOMs");
-            case mUCOM: return QString("Milli-TestUCOM (1 / 1" THIN_SP_UTF8 "000)");
-            case uUCOM: return QString("Micro-TestUCOM (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-TestUCOM (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case KZC: return QString("TestKZCs");
+            case mKZC: return QString("Milli-TestKZC (1 / 1" THIN_SP_UTF8 "000)");
+            case uKZC: return QString("Micro-TestKZC (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-TestKZC (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -97,9 +97,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case UCOM:  return 100000000;
-    case mUCOM: return 100000;
-    case uUCOM: return 100;
+    case KZC:  return 100000000;
+    case mKZC: return 100000;
+    case uKZC: return 100;
     case duffs: return 1;
     default:   return 100000000;
     }
@@ -109,9 +109,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case UCOM: return 8;
-    case mUCOM: return 5;
-    case uUCOM: return 2;
+    case KZC: return 8;
+    case mKZC: return 5;
+    case uKZC: return 2;
     case duffs: return 0;
     default: return 0;
     }

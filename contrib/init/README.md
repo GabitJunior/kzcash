@@ -1,11 +1,11 @@
 Sample configuration files for:
 
-SystemD: ucomd.service
-Upstart: ucomd.conf
-OpenRC:  ucomd.openrc
-         ucomd.openrcconf
-CentOS:  ucomd.init
-OS X:    org.ucom.ucomd.plist
+SystemD: kzcashd.service
+Upstart: kzcashd.conf
+OpenRC:  kzcashd.openrc
+         kzcashd.openrcconf
+CentOS:  kzcashd.init
+OS X:    org.kzcash.kzcashd.plist
 
 have been made available to assist packagers in creating node packages here.
 

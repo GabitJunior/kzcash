@@ -1,6 +1,0 @@
-usr/local/bin/ucom-qt usr/bin
-share/pixmaps/ucom32.xpm usr/share/pixmaps
-share/pixmaps/ucom16.xpm usr/share/pixmaps
-share/pixmaps/ucom128.png usr/share/pixmaps
-debian/ucom-qt.desktop usr/share/applications
-debian/ucom-qt.protocol usr/share/kde4/services/

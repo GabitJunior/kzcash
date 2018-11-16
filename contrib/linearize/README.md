@@ -1,9 +1,9 @@
 # Linearize
 Construct a linear, no-fork, best version of the blockchain.
 
-## Step 0: Install ucom_hash
+## Step 0: Install kzcash_hash
 
-https://github.com/unitedcryptocommunity/ucom_hash
+https://github.com/kzcashteam/kzcash_hash
 
 ## Step 1: Download hash list
 

@@ -17,7 +17,7 @@
 #include "util.h"
 #include "utilstrencodings.h"
 
-#include "test/test_ucom.h"
+#include "test/test_kzcash.h"
 
 #include <boost/test/unit_test.hpp>
 

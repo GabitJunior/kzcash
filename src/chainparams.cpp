@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The UCOM Core developers
+// Copyright (c) 2017-2019 The KZCash Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -91,8 +91,8 @@ public:
         consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("0x0000006a7203672b4f38bce10a731f8b3f45b6d32e41cc55bc35bc19a73c0a11");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 24 * 60 * 60; // UCOM: 1 day
-        consensus.nPowTargetSpacing = 2.5 * 60; // UCOM: 2.5 minutes
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // KZCash: 1 day
+        consensus.nPowTargetSpacing = 2.5 * 60; // KZCash: 2.5 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
@@ -126,20 +126,21 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0x17f10beb710fcee7b507494352d278b902d028158d323b64864fa79580592f02"));
 
 
+        vSeeds.push_back(CDNSSeedData("kz.cash", "seed.kz.cash"));
         vSeeds.push_back(CDNSSeedData("unitedcryptocommunity.com", "seed.unitedcryptocommunity.com"));
         vSeeds.push_back(CDNSSeedData("kzcash.kz", "dnsseed.kzcash.kz"));
 
-        // UCOM addresses start with 'K'
+        // KZCash addresses start with 'K'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,46);
-        // UCOM script addresses start with '7'
+        // KZCash script addresses start with '7'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,16);
-        // UCOM private keys start with '7' or 'X'
+        // KZCash private keys start with '7' or 'X'
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,204);
-        // UCOM BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
+        // KZCash BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
-        // UCOM BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
+        // KZCash BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
-        // UCOM BIP44 coin type is '5'
+        // KZCash BIP44 coin type is '5'
         base58Prefixes[EXT_COIN_TYPE]  = boost::assign::list_of(0x80)(0x00)(0x00)(0x05).convert_to_container<std::vector<unsigned char> >();
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
@@ -157,12 +158,12 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (  148100,  uint256S("0x0000000000009cb95ed831f2a577717e95156039f0da3a0687d10b620f65bcd3"))
-            (  157720,  uint256S("0x00000000000118128991edb8afc2e219eb3754923f94156917e2904f898ecbf5"))
-            (  164200,  uint256S("0x00000000000026dd98a8dc755b1f4b5c6a2a32a2542e39d9b6ae7fb081f3ca2e"))
-            (  179930,  uint256S("0x00000000000096ffa5c30563d2945f397fbb44f291a1f36403dcb9591fc8b101")),
-            1536952347, // * UNIX timestamp of last checkpoint block
-            258229,     // * total number of transactions between genesis and last checkpoint
+            (  179930,  uint256S("0x00000000000096ffa5c30563d2945f397fbb44f291a1f36403dcb9591fc8b101"))
+            (  189530,  uint256S("0x0000000000000dc86435a0cd9bbc99256f9c1f6c72f6465a1b2f1c622f2af74e"))
+            (  192610,  uint256S("0x0000000000012d05aa0bdb03490acf149f50f1f4e23d3e272b543900027ecb9c"))
+            (  213510,  uint256S("0x000000000000cfcab77c2715c2d5bdf100f05859d477b7ea07abd269c4946806")),
+            1542239854, // * UNIX timestamp of last checkpoint block
+            295984,     // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
             1200        // * estimated number of transactions per day after checkpoint
         };
@@ -195,8 +196,8 @@ public:
         consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("0x0000083f8eb64445c14163e8b28cea2214f109e3ea2bdbb7d77b2192bb75fbc7");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 24 * 60 * 60; // UCOM: 1 day
-        consensus.nPowTargetSpacing = 2.5 * 60; // UCOM: 2.5 minutes
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // KZCash: 1 day
+        consensus.nPowTargetSpacing = 2.5 * 60; // KZCash: 2.5 minutes
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
@@ -226,20 +227,21 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
+        vSeeds.push_back(CDNSSeedData("kz.cash", "testseed.kz.cash"));
         vSeeds.push_back(CDNSSeedData("unitedcryptocommunity.com", "testseed.unitedcryptocommunity.com"));
         vSeeds.push_back(CDNSSeedData("kzcash.kz", "testdnsseed.kzcash.kz"));
 
-        // Testnet UCOM addresses start with 'y'
+        // Testnet KZCash addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
-        // Testnet UCOM script addresses start with '8' or '9'
+        // Testnet KZCash script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
         // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Testnet UCOM BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Testnet KZCash BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Testnet UCOM BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Testnet KZCash BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
-        // Testnet UCOM BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet KZCash BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE]  = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -293,8 +295,8 @@ public:
         consensus.BIP34Height = -1; // BIP34 has not necessarily activated on regtest
         consensus.BIP34Hash = uint256();
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 24 * 60 * 60; // UCOM: 1 day
-        consensus.nPowTargetSpacing = 2.5 * 60; // UCOM: 2.5 minutes
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // KZCash: 1 day
+        consensus.nPowTargetSpacing = 2.5 * 60; // KZCash: 2.5 minutes
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
         consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
@@ -337,17 +339,17 @@ public:
             0,
             0
         };
-        // Regtest UCOM addresses start with 'y'
+        // Regtest KZCash addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
-        // Regtest UCOM script addresses start with '8' or '9'
+        // Regtest KZCash script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
         // Regtest private keys start with '9' or 'c' (Bitcoin defaults)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Regtest UCOM BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Regtest KZCash BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Regtest UCOM BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Regtest KZCash BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
-        // Regtest UCOM BIP44 coin type is '1' (All coin's testnet default)
+        // Regtest KZCash BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE]  = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
    }
 };

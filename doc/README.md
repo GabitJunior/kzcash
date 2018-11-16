@@ -1,11 +1,11 @@
-UCOM Core 0.1.8
+KZCash Core 0.1.8
 =====================
 
-This is the official reference wallet for UCOM digital currency and comprises the backbone of the UCOM peer-to-peer network. You can [download UCOM Core](https://www.unitedcryptocommunity.com/downloads/) or [build it yourself](#building) using the guides below.
+This is the official reference wallet for KZCash digital currency and comprises the backbone of the KZCash peer-to-peer network. You can [download KZCash Core](https://www.kz.cash/downloads/) or [build it yourself](#building) using the guides below.
 
 Running
 ---------------------
-The following are some helpful notes on how to run UCOM on your native platform.
+The following are some helpful notes on how to run KZCash on your native platform.
 
 ### Unix
 
@@ -16,15 +16,15 @@ Unpack the files into a directory and run:
 
 ### Windows
 
-Unpack the files into a directory, and then run ucom-qt.exe.
+Unpack the files into a directory, and then run kzcash-qt.exe.
 
 ### OS X
 
-Drag UCOM-Qt to your applications folder, and then run UCOM-Qt.
+Drag KZCash-Qt to your applications folder, and then run KZCash-Qt.
 
 Building
 ---------------------
-The following are developer notes on how to build UCOM Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build KZCash Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OS X Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -34,7 +34,7 @@ The following are developer notes on how to build UCOM Core on your native platf
 
 Development
 ---------------------
-The UCOM Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The KZCash Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)

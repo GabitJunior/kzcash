@@ -55,15 +55,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += ucomd
+  bin_PROGRAMS += kzcashd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += ucom-cli ucom-tx
+  bin_PROGRAMS += kzcash-cli kzcash-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# ucom core #
+# kzcash core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addressindex.h \
@@ -191,7 +191,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between ucomd and ucom-qt
+# server: shared between kzcashd and kzcash-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
@@ -249,7 +249,7 @@ libbitcoin_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between ucomd and ucom-qt, but only linked
+# wallet: shared between kzcashd and kzcash-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -318,7 +318,7 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sha512.cpp \
   crypto/sha512.h
 
-# common: shared between ucomd, and ucom-qt and non-server tools
+# common: shared between kzcashd, and kzcash-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -375,7 +375,7 @@ if GLIBC_BACK_COMPAT
 libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between ucom-cli and ucom-qt
+# cli: shared between kzcash-cli and kzcash-qt
 libbitcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
@@ -386,16 +386,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-ucomd_SOURCES = ucomd.cpp
-ucomd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-ucomd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-ucomd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+kzcashd_SOURCES = kzcashd.cpp
+kzcashd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+kzcashd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+kzcashd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-ucomd_SOURCES += ucomd-res.rc
+kzcashd_SOURCES += kzcashd-res.rc
 endif
 
-ucomd_LDADD = \
+kzcashd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -406,50 +406,50 @@ ucomd_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-ucomd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+kzcashd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-ucomd_LDADD += libbitcoin_wallet.a
+kzcashd_LDADD += libbitcoin_wallet.a
 endif
 
-ucomd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+kzcashd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
 
-# ucom-cli binary #
-ucom_cli_SOURCES = ucom-cli.cpp
-ucom_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-ucom_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-ucom_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# kzcash-cli binary #
+kzcash_cli_SOURCES = kzcash-cli.cpp
+kzcash_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+kzcash_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+kzcash_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-ucom_cli_SOURCES += ucom-cli-res.rc
+kzcash_cli_SOURCES += kzcash-cli-res.rc
 endif
 
-ucom_cli_LDADD = \
+kzcash_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL)
-ucom_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+kzcash_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# ucom-tx binary #
-ucom_tx_SOURCES = ucom-tx.cpp
-ucom_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-ucom_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-ucom_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# kzcash-tx binary #
+kzcash_tx_SOURCES = kzcash-tx.cpp
+kzcash_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+kzcash_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+kzcash_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-ucom_tx_SOURCES += ucom-tx-res.rc
+kzcash_tx_SOURCES += kzcash-tx-res.rc
 endif
 
-ucom_tx_LDADD = \
+kzcash_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-ucom_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+kzcash_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #

@@ -4,22 +4,22 @@
 
 	* means the category has an associated class
 	
-	CUCOMNetwork: UCOM NETWORK (ROOT)
+	CKZCASHNetwork: KZCash NETWORK (ROOT)
 	has:
 		vector<CNetworkVariable> vecNetworkVariables;
-		vector<CUCOMProject> vecProjects;
+		vector<CKZCASHProject> vecProjects;
 		vector<CGovernanceObject> vecProposals;
 		vector<CBudgetContract> vecContracts;
 		vector<CBudgetUsers> vecUsers;
 
-	CUCOMProject:
+	CKZCASHProject:
 	has:
 		name
 		employees
 
 */
 
-	// UCOM NETWORK (ROOT)
+	// KZCash NETWORK (ROOT)
 	// 	-> NETWORK VARIABLE
 	// 		-> switch, setting
 	// 	-> CATEGORIES
@@ -49,7 +49,7 @@
 	// 			-> USER1 (only users are allowed here in this scope)
 	// 			-> USER2
 	// 		-> GROUP2 (EVO)
-	// 			-> VALUEOVERRIDE (STORE=UCOMDRIVE)
+	// 			-> VALUEOVERRIDE (STORE=KZCASHDRIVE)
 	// 			-> USER1
 
 	// 	-> COMPANIES

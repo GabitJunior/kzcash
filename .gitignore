@@ -6,13 +6,13 @@ reset-files.bash
 *.tar.gz
 
 *.exe
-src/ucom
-src/ucomd
-src/ucom-cli
-src/ucom-tx
-src/test/test_ucom
-src/qt/test/test_ucom-qt
-src/bench/bench_ucom
+src/kzcash
+src/kzcashd
+src/kzcash-cli
+src/kzcash-tx
+src/test/test_kzcash
+src/qt/test/test_kzcash-qt
+src/bench/bench_kzcash
 
 # autoreconf
 Makefile.in
@@ -35,8 +35,8 @@ config.log
 config.status
 configure
 libtool
-src/config/ucom-config.h
-src/config/ucom-config.h.in
+src/config/kzcash-config.h
+src/config/kzcash-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -62,7 +62,7 @@ libconftest.dylib*
 *.o
 *.o-*
 *.patch
-.ucom
+.kzcash
 *.a
 *.pb.cc
 *.pb.h
@@ -81,12 +81,12 @@ libconftest.dylib*
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-ucom-qt
-UCOM-Qt.app
+kzcash-qt
+KZCash-Qt.app
 
 # Unit-tests
 Makefile.test
-ucom-qt_test
+kzcash-qt_test
 src/test/buildenv.py
 
 # Resources cpp
@@ -100,7 +100,7 @@ build
 *.gcno
 *.gcda
 /*.info
-test_ucom.coverage/
+test_kzcash.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -124,11 +124,11 @@ share/BitcoindComparisonTool.jar
 /doc/doxygen/
 
 libbitcoinconsensus.pc
-src/qt/ucom-qt.bash
+src/qt/kzcash-qt.bash
 qa/pull-tester/tests-config.sh
 
 #development symlinks
-ucom-cli
-ucomd
-ucom-qt
+kzcash-cli
+kzcashd
+kzcash-qt
 make

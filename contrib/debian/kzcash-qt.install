@@ -1,0 +1,6 @@
+usr/local/bin/kzcash-qt usr/bin
+share/pixmaps/kzcash32.xpm usr/share/pixmaps
+share/pixmaps/kzcash16.xpm usr/share/pixmaps
+share/pixmaps/kzcash128.png usr/share/pixmaps
+debian/kzcash-qt.desktop usr/share/applications
+debian/kzcash-qt.protocol usr/share/kde4/services/

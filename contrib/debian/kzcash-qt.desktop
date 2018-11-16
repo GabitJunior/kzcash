@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=KZCash
+Comment=KZCash P2P Cryptocurrency
+Comment[fr]=KZCash, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=KZCash, eşten eşe kriptografik sanal para birimi
+Exec=kzcash-qt %u
+Terminal=false
+Type=Application
+Icon=kzcash128
+MimeType=x-scheme-handler/kzcash;
+Categories=Office;Finance;

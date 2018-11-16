@@ -11,9 +11,9 @@ When a "Transaction Lock" occurs the hash of the related transaction is broadcas
 * `zmqpubrawtxlock`: publishes the raw transaction when locked via InstantSend
 * `zmqpubhashtxlock`: publishes the transaction hash when locked via InstantSend
 
-This mechanism has been integrated into Bitcore-Node-UCOM which allows for notification to be broadcast through Insight API in one of two ways:
-* WebSocket: [https://github.com/ucompay/insight-api-ucom#web-socket-api](https://github.com/ucompay/insight-api-ucom#web-socket-api) 
-* API: [https://github.com/ucompay/insight-api-ucom#instantsend-transactions](https://github.com/ucompay/insight-api-ucom#instantsend-transactions) 
+This mechanism has been integrated into Bitcore-Node-KZCash which allows for notification to be broadcast through Insight API in one of two ways:
+* WebSocket: [https://github.com/kzcashpay/insight-api-kzcash#web-socket-api](https://github.com/kzcashpay/insight-api-kzcash#web-socket-api) 
+* API: [https://github.com/kzcashpay/insight-api-kzcash#instantsend-transactions](https://github.com/kzcashpay/insight-api-kzcash#instantsend-transactions) 
 
 ####Command line option
 
@@ -27,13 +27,13 @@ When a wallet InstantSend transaction is successfully locked a shell command pro
 
 Details pertaining to an observed "Transaction Lock" can also be retrieved through RPC, it’s important however to understand the underlying mechanism.
 
-By default, the UCOM Core daemon will launch using the following constant:
+By default, the KZCash Core daemon will launch using the following constant:
 
 ```
 static const int DEFAULT_INSTANTSEND_DEPTH = 5;
 ```
 
-This value can be overridden by passing the following argument to the UCOM Core daemon:
+This value can be overridden by passing the following argument to the KZCash Core daemon:
 
 ```
 -instantsenddepth=<n>

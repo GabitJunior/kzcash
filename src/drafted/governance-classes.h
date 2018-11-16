@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The UCOM Core developers
+// Copyright (c) 2017-2019 The KZCash Core developers
 
 /*
  * FIELDS AND CLASSIFICATION
@@ -46,7 +46,7 @@
  * =========================
  *
  *   // network
- *   CUCOMNetwork lvl, network-type, network-status, network-error, milestone-status*
+ *   CKZCASHNetwork lvl, network-type, network-status, network-error, milestone-status*
  *   CCategory lvl, category-type, status, status-error
  *   CNetworkGlobalVariable lvl, global-type, status, status-error
  *   // base: actor
@@ -80,7 +80,7 @@
  *  TREE STRUCTURE
  *  ===========================================
  * 
- *  UCOM NETWORK (ROOT)
+ *  KZCash NETWORK (ROOT)
  *      -> NETWORK GLOBOLS
  *          -> SWITCHES, SETTINGS
  *      -> CATEGORIES
@@ -118,7 +118,7 @@ private:
     int nLevel;
     std::string strCategory;
 
-    // Current OBJECT STATUS (see http://govman.unitedcryptocommunity.com/index.php/Documentation_:_Status_Field)
+    // Current OBJECT STATUS (see http://govman.kz.cash/index.php/Documentation_:_Status_Field)
     int nStatusID;
     std::string strStatusMessage;
 
@@ -131,7 +131,7 @@ public:
 };
 
 // // root node
-class CUCOMNetwork : public CGovernanceObject
+class CKZCASHNetwork : public CGovernanceObject
 {
 private:
     std::string strName;
@@ -139,7 +139,7 @@ private:
 
 
 public:
-    CUCOMNetwork(UniValue objIn)
+    CKZCASHNetwork(UniValue objIn)
     {
         strName = objIn["name"].get_str();
         strURL = objIn["name"].get_str();
@@ -175,9 +175,9 @@ public:
 
 };
 
-// // can be under: UCOMNetwork
+// // can be under: KZCASHNetwork
 // //   -- signature requirements : Key1(User)
-// class CUCOMNetworkVariable : public CGovernanceObject
+// class CKZCASHNetworkVariable : public CGovernanceObject
 // {
 // private:
 
@@ -280,7 +280,7 @@ public:
 //     // isRootCategory()
 //     // {
 //     //     // root categories won't have categories as parents
-//     //     return (IsType() == UCOMNetwork);
+//     //     return (IsType() == KZCASHNetwork);
 //     // }
 
 //     // isSubcategoryOf(std::string strParentName)

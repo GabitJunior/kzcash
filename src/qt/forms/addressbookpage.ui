@@ -137,7 +137,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../ucom.qrc"/>
+  <include location="../kzcash.qrc"/>
  </resources>
  <connections/>
 </ui>

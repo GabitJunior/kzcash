@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/ucom-config.h"
+#include "config/kzcash-config.h"
 #endif
 
 #include "optionsdialog.h"
@@ -90,10 +90,10 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     }
     
     /* Theme selector */
-    ui->theme->addItem(QString("UCOM-light"), QVariant("light"));
-    ui->theme->addItem(QString("UCOM-blue"), QVariant("drkblue"));
-    ui->theme->addItem(QString("UCOM-Crownium"), QVariant("crownium"));
-    ui->theme->addItem(QString("UCOM-traditional"), QVariant("trad"));
+    ui->theme->addItem(QString("KZCash-light"), QVariant("light"));
+    ui->theme->addItem(QString("KZCash-blue"), QVariant("drkblue"));
+    ui->theme->addItem(QString("KZCash-Crownium"), QVariant("crownium"));
+    ui->theme->addItem(QString("KZCash-traditional"), QVariant("trad"));
     
     /* Language selector */
     QDir translations(":translations");

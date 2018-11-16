@@ -1,8 +1,8 @@
-Source: ucom
+Source: kzcash
 Section: utils
 Priority: optional
-Maintainer: Holger Schinzel <holger@unitedcryptocommunity.com>
-Uploaders: Holger Schinzel <holger@unitedcryptocommunity.com>
+Maintainer: Holger Schinzel <holger@kz.cash>
+Uploaders: Holger Schinzel <holger@kz.cash>
 Build-Depends: debhelper,
  devscripts,
  automake,
@@ -24,45 +24,45 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler,
  python
 Standards-Version: 3.9.2
-Homepage: https://www.unitedcryptocommunity.com/
-Vcs-Git: git://github.com/unitedcryptocommunity/ucom.git
-Vcs-Browser: https://github.com/unitedcryptocommunity/ucom
+Homepage: https://www.kz.cash/
+Vcs-Git: git://github.com/kzcashteam/kzcash.git
+Vcs-Browser: https://github.com/kzcashteam/kzcash
 
-Package: ucomd
+Package: kzcashd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- UCOM is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. UCOM uses peer-to-peer
+ KZCash is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. KZCash uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. UCOM Core
+ and issuing money are carried out collectively by the network. KZCash Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides the daemon, ucomd, and the CLI tool
- ucom-cli to interact with the daemon.
+ This package provides the daemon, kzcashd, and the CLI tool
+ kzcash-cli to interact with the daemon.
 
-Package: ucom-qt
+Package: kzcash-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- UCOM is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. UCOM uses peer-to-peer
+ KZCash is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. KZCash uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. UCOM Core
+ and issuing money are carried out collectively by the network. KZCash Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides UCOM-Qt, a GUI for UCOM based on Qt.
+ This package provides KZCash-Qt, a GUI for KZCash based on Qt.
 
-Package: ucom-tx
+Package: kzcash-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- UCOM is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. UCOM uses peer-to-peer
+ KZCash is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. KZCash uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. UCOM Core
+ and issuing money are carried out collectively by the network. KZCash Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides ucom-tx, a command-line transaction creation
- tool which can be used without a ucom daemon.  Some means of
+ This package provides kzcash-tx, a command-line transaction creation
+ tool which can be used without a kzcash daemon.  Some means of
  exchanging minimal transaction data with peers is still required.

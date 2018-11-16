@@ -16,9 +16,9 @@ enum GovernanceObjectType {
     ValueOverride = 1, 
 
     // -------------------------------
-    // UCOMNetwork - is the root node
-    UCOMNetwork = 1000,
-    UCOMNetworkVariable = 1001,
+    // KZCASHNetwork - is the root node
+    KZCASHNetwork = 1000,
+    KZCASHNetworkVariable = 1001,
     Category = 1002,
 
     // Actors

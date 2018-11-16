@@ -62,10 +62,10 @@ for arg in sys.argv[1:]:
 
 #Set env vars
 buildDir = BUILDDIR
-if "UCOMD" not in os.environ:
-    os.environ["UCOMD"] = buildDir + '/src/ucomd' + EXEEXT
-if "UCOMCLI" not in os.environ:
-    os.environ["UCOMCLI"] = buildDir + '/src/ucom-cli' + EXEEXT
+if "KZCASHD" not in os.environ:
+    os.environ["KZCASHD"] = buildDir + '/src/kzcashd' + EXEEXT
+if "KZCASHCLI" not in os.environ:
+    os.environ["KZCASHCLI"] = buildDir + '/src/kzcash-cli' + EXEEXT
 
 if EXEEXT == ".exe" and "-win" not in opts:
     # https://github.com/bitcoin/bitcoin/commit/d52802551752140cf41f0d9a225a43e84404d3e9
@@ -115,14 +115,14 @@ testScripts = [
     'timestampindex.py',
     'spentindex.py',
     'decodescript.py',
-    'p2p-fullblocktest.py', # NOTE: needs ucom_hash to pass
+    'p2p-fullblocktest.py', # NOTE: needs kzcash_hash to pass
     'blockchain.py',
     'disablewallet.py',
-    'sendheaders.py', # NOTE: needs ucom_hash to pass
+    'sendheaders.py', # NOTE: needs kzcash_hash to pass
     'keypool.py',
     'prioritise_transaction.py',
-    'invalidblockrequest.py', # NOTE: needs ucom_hash to pass
-    'invalidtxrequest.py', # NOTE: needs ucom_hash to pass
+    'invalidblockrequest.py', # NOTE: needs kzcash_hash to pass
+    'invalidtxrequest.py', # NOTE: needs kzcash_hash to pass
     'abandonconflict.py',
     'p2p-versionbits-warning.py',
 ]
@@ -132,9 +132,9 @@ if ENABLE_ZMQ:
 testScriptsExt = [
     'bip9-softforks.py',
     'bip65-cltv.py',
-    'bip65-cltv-p2p.py', # NOTE: needs ucom_hash to pass
+    'bip65-cltv-p2p.py', # NOTE: needs kzcash_hash to pass
     'bip68-sequence.py',
-    'bipdersig-p2p.py', # NOTE: needs ucom_hash to pass
+    'bipdersig-p2p.py', # NOTE: needs kzcash_hash to pass
     'bipdersig.py',
     'getblocktemplate_longpoll.py', # FIXME: "socket.error: [Errno 54] Connection reset by peer" on my Mac, same as  https://github.com/bitcoin/bitcoin/issues/6651
     'getblocktemplate_proposals.py',
@@ -146,10 +146,10 @@ testScriptsExt = [
 #    'rpcbind_test.py', #temporary, bug in libevent, see #6655
     'smartfees.py',
     'maxblocksinflight.py',
-    'p2p-acceptblock.py', # NOTE: needs ucom_hash to pass
+    'p2p-acceptblock.py', # NOTE: needs kzcash_hash to pass
     'mempool_packages.py',
     'maxuploadtarget.py',
-    # 'replace-by-fee.py', # RBF is disabled in UCOM Core
+    # 'replace-by-fee.py', # RBF is disabled in KZCash Core
 ]
 
 def runtests():
